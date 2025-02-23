@@ -50,17 +50,12 @@ export function UserButton() {
             <DropdownMenuLabel> {user.firstName} </DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <NavLink to="/dashboard">
+            <NavLink to="/">
               <DropdownMenuItem className="flex gap-[10px] items-center">
                 <LuHouse />
                 <span>Home</span>
               </DropdownMenuItem>
             </NavLink>
-
-            <DropdownMenuItem className="flex gap-[10px] items-center">
-              <LuUser />
-              <span>Profile</span>
-            </DropdownMenuItem>
 
             <NavLink to="/dashboard">
               <DropdownMenuItem className="cursor-pointer flex gap-[10px] items-center">
