@@ -1,4 +1,4 @@
-import { HomeMenu } from "@/components/home/home-menu";
+import { HomeMenu } from "@/components/home/home-header";
 import type { Route } from "./+types/home"
 
 export function meta({}: Route.MetaArgs) {
