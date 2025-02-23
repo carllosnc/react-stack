@@ -1,5 +1,5 @@
 import { db } from "@/app/database"
-import { pages } from "@/db-schemas/page-schema"
+import { pages } from "@/data/db-schemas/page-schema"
 import type { NewPage } from "@/types/db-types"
 import { eq } from "drizzle-orm"
 

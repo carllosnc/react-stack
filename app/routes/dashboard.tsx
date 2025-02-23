@@ -5,7 +5,7 @@ import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { Spinner } from "@/components/ui/spinner";
 import { useUser } from "@clerk/react-router";
 import { Button } from "@/components/ui/button";
-import { useCreatePage } from "@/db-hooks/page-hooks";
+import { useCreatePage } from "@/data/db-hooks/page-hooks";
 
 export async function loader(args: any) {
   const auth = await getAuth(args)
