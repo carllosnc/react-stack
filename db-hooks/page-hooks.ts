@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getPages, createPage } from "@/app/repository/page-repository";
+import { getPages, createPage } from "@/repository/page-repository";
 import type { NewPage } from "@/types/db-types";
 
 function useGetPages(userId: string) {
