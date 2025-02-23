@@ -1,4 +1,5 @@
 import "./app.css"
+
 import { rootAuthLoader } from '@clerk/react-router/ssr.server'
 import {
   isRouteErrorResponse,
@@ -10,14 +11,10 @@ import {
 import type { Route } from './+types/root'
 import { ClerkProvider } from '@clerk/react-router'
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
 
-// Create a client
 const queryClient = new QueryClient()
 
 export async function loader(args: Route.LoaderArgs) {
