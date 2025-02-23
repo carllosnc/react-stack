@@ -1,6 +1,7 @@
 import type { Route } from "../+types/root";
 import { getAuth } from "@clerk/react-router/ssr.server"
-import { Outlet, redirect } from "react-router"
+import { redirect } from "react-router"
+import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 
 export async function loader(args: any) {
   const auth = await getAuth(args)
@@ -19,8 +20,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Dashboard() {
   return (
     <div>
-      <h1> Dashboard page </h1>
-      <Outlet />
+      <DashboardHeader />
     </div>
   );
 }
