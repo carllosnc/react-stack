@@ -1,33 +1,28 @@
+import "./app.css"
 import { rootAuthLoader } from '@clerk/react-router/ssr.server'
 import {
   isRouteErrorResponse,
-  Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration
 } from 'react-router'
 import type { Route } from './+types/root'
-import stylesheet from './app.css?url'
 import { ClerkProvider } from '@clerk/react-router'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+// Create a client
+const queryClient = new QueryClient()
 
 export async function loader(args: Route.LoaderArgs) {
   return rootAuthLoader(args)
 }
-
-export const links: Route.LinksFunction = () => [
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-  {
-    rel: 'preconnect',
-    href: 'https://fonts.gstatic.com',
-    crossOrigin: 'anonymous',
-  },
-  {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
-  },
-  { rel: 'stylesheet', href: stylesheet },
-]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,7 +31,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <Links />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
       </head>
       <body>
         {children}
@@ -54,9 +51,11 @@ export default function App({ loaderData }: Route.ComponentProps) {
       signUpFallbackRedirectUrl="/"
       signInFallbackRedirectUrl="/dashboard"
     >
-      <main>
-        <Outlet />
-      </main>
+      <QueryClientProvider client={queryClient}>
+        <main>
+          <Outlet />
+        </main>
+      </QueryClientProvider>
     </ClerkProvider>
   )
 }
