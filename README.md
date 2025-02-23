@@ -34,6 +34,11 @@ Run the development server:
 bun run dev
 ```
 
+Run the database server:
+```
+turso dev --db-file database
+```
+
 Generate database schema:
 ```
 bun run generate
