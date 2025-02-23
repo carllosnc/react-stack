@@ -1,6 +1,6 @@
 import { db } from "@/app/database"
 import { pages } from "@/db-schemas/page-schema"
-import type { NewPage } from "@/lib/db-types"
+import type { NewPage } from "@/types/db-types"
 import { eq } from "drizzle-orm"
 
 export async function createPage(page: NewPage){
