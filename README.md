@@ -29,8 +29,19 @@ VITE_TURSO_AUTH_TOKEN=
 
 ### Commands
 
+Run the development server:
 ```
 bun run dev
+```
+
+Generate database schema:
+```
+bun run generate
+```
+
+Migrate database:
+```
+bun run migrate
 ```
 
 ---
